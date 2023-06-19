@@ -30,28 +30,120 @@ body {
 .container {
 	display: flex;
 	flex-direction: column;
-    position: relative;
-    height: 30em;
-    min-width: 350px;
-    background-color: $white;
+	align-items: center;
+	position: relative;
+	height: clamp(28em, 50vw, 37em);
+	width: clamp(350px, 60vw, 750px);
+	background-color: $white;
+	border-radius: 25px;
+	border-bottom-right-radius: 100px;
 
 	.inputs {
-        position: relative;
-        display: flex;
+		position: relative;
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+		padding: 3em 1em 2em 1em;
 
-		.input {
-			height: 3em;
-			width: 6em;
+		.input-div {
+			.input-title {
+				margin-bottom: 0.5em;
+				font-size: 1.1rem;
+				color: $smokeygrey;
+				letter-spacing: 2.5px;
+			}
+
+			.input {
+				height: clamp(3em, 6vw, 3.7em);
+				width: clamp(5em, 10vw, 9em);
+				border: 1px solid $lightgrey;
+				border-radius: 5px;
+				padding-left: 1em;
+				font-size: 1.6rem;
+				font-weight: 700;
+			}
 		}
 	}
 
 	.separator {
+		position: relative;
+		width: 85%;
+		height: 3em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
 		.line {
+			width: 100%;
+			position: absolute;
 			border-bottom: 1px solid $lightgrey;
 		}
 
 		img {
+			height: 55px;
+			padding: 1em;
 			background-color: $purple;
+			border-radius: 50%;
+			z-index: 1;
+		}
+	}
+
+	.results {
+		width: 100%;
+		padding: 2em;
+
+		.result-text {
+			font-size: clamp(5rem, 6vw, 9rem);
+			font-weight: 800;
+			font-style: italic;
+			line-height: 1.2;
+
+			.result-value {
+				color: $purple;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		border-bottom-right-radius: 150px;
+
+		.inputs {
+			padding-left: 1.6em;
+			padding-top: 4em;
+			justify-content: start;
+
+			.input-div {
+				padding: 0 1.2em;
+
+				.input-title {
+					font-size: 1.4rem;
+				}
+
+				.input {
+					height: clamp(1em, 6vw, 2.5em);
+					width: clamp(3em, 10vw, 5.5em);
+					font-size: 2.6rem;
+				}
+			}
+		}
+
+		.separator {
+			height: 5em;
+
+			img {
+				position: absolute;
+				right: 0;
+				height: 90px;
+				padding: 1.5em;
+			}
+		}
+
+		.results {
+			.result-text {
+				padding-left: .4em;
+			}
 		}
 	}
 }
