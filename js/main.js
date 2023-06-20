@@ -63,9 +63,35 @@ const checkNumber = () => {
 }
 
 const checkAge = () => {
-	const setYear = year - parseInt(yearInput.value)
-	const setMonth = month - parseInt(monthInput.value)
-	const setDay = day - parseInt(dayInput.value)
+	let setYear = year - parseInt(yearInput.value)
+	let setMonth = month - parseInt(monthInput.value)
+	let setDay = day - parseInt(dayInput.value)
+
+	if (setMonth < 0) {
+		setMonth = setMonth + 12
+		setYear = setYear - 1
+	}
+
+	if (setDay < 0) {
+		setDay = setDay + 31
+		setMonth = setMonth - 1
+	}
+	
+	yearsResult.textContent = `${setYear}`
+	monthsResult.textContent = `${setMonth}`
+	daysResult.textContent = `${setDay}`
+}
+
+const resetResults = () => {
+	if (
+		dayInput.classList.contains('input-error') ||
+		monthInput.classList.contains('input-error') ||
+		yearInput.classList.contains('input-error')
+	) {
+		yearsResult.textContent = '--'
+		monthsResult.textContent = '--'
+		daysResult.textContent = '--'
+	}
 }
 
 const showResults = () => {
@@ -75,6 +101,7 @@ const showResults = () => {
 		monthInput.classList.contains('input-error') ||
 		yearInput.classList.contains('input-error')
 	) {
+		resetResults()
 		return
 	}
 	checkNumber()
@@ -83,6 +110,7 @@ const showResults = () => {
 		monthInput.classList.contains('input-error') ||
 		yearInput.classList.contains('input-error')
 	) {
+		resetResults()
 		return
 	}
 
