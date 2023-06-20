@@ -43,6 +43,9 @@ body {
   color: hsl(0, 1%, 44%);
   letter-spacing: 2.5px;
 }
+.container .inputs .input-div .title-error {
+  color: hsl(0, 100%, 67%);
+}
 .container .inputs .input-div .input {
   height: clamp(3em, 6vw, 3.7em);
   width: clamp(5em, 10vw, 9em);
@@ -51,6 +54,22 @@ body {
   padding-left: 1em;
   font-size: 1.6rem;
   font-weight: 700;
+}
+.container .inputs .input-div .input-error {
+  border: 1px solid hsl(0, 100%, 67%);
+}
+.container .inputs .input-div .day-error,
+.container .inputs .input-div .month-error,
+.container .inputs .input-div .year-error {
+  display: none;
+  padding-top: 0.8em;
+  font-size: 0.8rem;
+  color: hsl(0, 100%, 67%);
+  font-weight: 400;
+  font-style: italic;
+}
+.container .inputs .input-div .error-show {
+  display: flex;
 }
 .container .separator {
   position: relative;
@@ -71,6 +90,11 @@ body {
   background-color: hsl(259, 100%, 65%);
   border-radius: 50%;
   z-index: 1;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.container .separator img:hover {
+  background-color: hsl(0, 0%, 8%);
 }
 .container .results {
   width: 100%;
@@ -103,8 +127,13 @@ body {
   }
   .container .inputs .input-div .input {
     height: clamp(1em, 6vw, 2.5em);
-    width: clamp(3em, 10vw, 5.5em);
+    width: clamp(3em, 11vw, 5.5em);
     font-size: 2.6rem;
+  }
+  .container .inputs .input-div .day-error,
+  .container .inputs .input-div .month-error,
+  .container .inputs .input-div .year-error {
+    font-size: 1.2rem;
   }
   .container .separator {
     height: 5em;

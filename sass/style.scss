@@ -53,6 +53,10 @@ body {
 				letter-spacing: 2.5px;
 			}
 
+			.title-error {
+				color: $lightred;
+			}
+
 			.input {
 				height: clamp(3em, 6vw, 3.7em);
 				width: clamp(5em, 10vw, 9em);
@@ -61,6 +65,25 @@ body {
 				padding-left: 1em;
 				font-size: 1.6rem;
 				font-weight: 700;
+			}
+
+			.input-error {
+				border: 1px solid $lightred;
+			}
+
+			.day-error,
+			.month-error,
+			.year-error {
+				display: none;
+				padding-top: 0.8em;
+				font-size: 0.8rem;
+				color: $lightred;
+				font-weight: 400;
+				font-style: italic;
+			}
+
+			.error-show {
+				display: flex;
 			}
 		}
 	}
@@ -85,6 +108,12 @@ body {
 			background-color: $purple;
 			border-radius: 50%;
 			z-index: 1;
+			cursor: pointer;
+			transition: background-color .3s;
+		}
+
+		img:hover {
+			background-color: $offblack;
 		}
 	}
 
@@ -123,8 +152,14 @@ body {
 
 				.input {
 					height: clamp(1em, 6vw, 2.5em);
-					width: clamp(3em, 10vw, 5.5em);
+					width: clamp(3em, 11vw, 5.5em);
 					font-size: 2.6rem;
+				}
+
+				.day-error,
+				.month-error,
+				.year-error {
+					font-size: 1.2rem;
 				}
 			}
 		}
@@ -142,7 +177,7 @@ body {
 
 		.results {
 			.result-text {
-				padding-left: .4em;
+				padding-left: 0.4em;
 			}
 		}
 	}
