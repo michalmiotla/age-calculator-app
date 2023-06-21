@@ -30,7 +30,7 @@ const checkInput = () => {
 }
 
 const checkNumber = () => {
-	if (dayInput.value > 31) {
+	if (dayInput.value > 31 || dayInput.value <= 0) {
 		dayInput.nextElementSibling.classList.add('error-show')
 		dayInput.classList.add('input-error')
 		dayInput.previousElementSibling.classList.add('title-error')
@@ -40,7 +40,7 @@ const checkNumber = () => {
 		dayInput.classList.remove('input-error')
 		dayInput.previousElementSibling.classList.remove('title-error')
 	}
-	if (monthInput.value > 12) {
+	if (monthInput.value > 12 || monthInput.value <= 0) {
 		monthInput.nextElementSibling.classList.add('error-show')
 		monthInput.classList.add('input-error')
 		monthInput.previousElementSibling.classList.add('title-error')
@@ -76,7 +76,7 @@ const checkAge = () => {
 		setDay = setDay + 31
 		setMonth = setMonth - 1
 	}
-	
+
 	yearsResult.textContent = `${setYear}`
 	monthsResult.textContent = `${setMonth}`
 	daysResult.textContent = `${setDay}`
